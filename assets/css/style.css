@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --theme-color: #23401d;
+}
+.font-color {
+  color: #e6511a;
+}
+
+.font-color1 {
+  color: #c6a162;
+}
+body {
+  height: 100vh;
+  background-color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--theme-color);
+  height: 80px;
+  font-weight: 500;
+  font-size: 18px;
+  position: sticky;
+}
+header .nav-link {
+  color: #e6511a !important;
+  margin: 0px 6px 0px 8px;
+}
+header #navbarSupportedContent {
+  background-color: var(--theme-color);
+}
+header .nav-link:hover {
+  transition: 0.3s;
+  transform: scale(1.02);
+  color: #ddd1d1 !important;
+}
+header .user-icon {
+  padding: 0.4rem;
+  color: #c6a162 !important;
+  border-radius: 50%;
+  border: 2px solid #c6a162;
+  width: 40px;
+  text-align: center;
+}
+header .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.logo img{
+width: 120px;
+padding-left: 20px;
+}
+footer {
+  background-color: var(--theme-color);
+}
+footer .nav-link:hover {
+  transition: 0.3s;
+  transform: scale(1.02);
+  color: #ddd1d1 !important;
+}
+footer .icon:hover {
+  transition: 0.3s;
+  transform: scale(1.5) !important;
+  color: #ddd1d1 !important;
+}
+
+.bg-img-1 {
+  min-height: calc(100vh - 50px);
+  background: url("/assets/images/img-1.jpg") no-repeat center;
+  background-size: cover;
+}
+.bg-img-2 {
+  min-height: calc(100vh - 50px);
+  background: url("/assets/images/img-2.jpg") no-repeat center;
+  background-size: cover;
+}
+.bg-img-3 {
+  min-height: calc(100vh - 50px);
+  background: url("/assets/images/img-3.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.color-theme {
+  color: var(--theme-color);
+}
+
+.btn {
+  padding: 8px 70px;
+  font-size: 18px;
+  color: white;
+  background-color: var(--theme-color);
+  border-radius: 4px;
+  margin-top: 80px;
+  color: #c6a162;
+}
+.btn-danger {
+  background-color: rgb(223, 28, 28);
+}
+.btn:hover {
+  box-shadow: 3px 4px 6px 0px grey;
+  color: #c6a162;
+}
+
+#carousel img {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  object-fit: cover;
+  object-position: center;
+}
+#carousel img {
+	width: calc(100vw - 200px);
+	height: calc(100vh - 50px);
+	object-fit: cover;
+	object-position: center;
+	margin: 20px auto 0; 
+	display: block;
+  }
+  @media (max-width:450px) {
+	#carousel img {
+		width: calc(100vw - 30px); 
+		height: calc(100vh - 50px);
+		object-fit: cover;
+		object-position: center;
+		margin: 5px auto 0; 
+		display: block;
+	  }
+  }
+
+#carousel .carousel-control-prev-icon,
+#carousel .carousel-control-next-icon {
+  transform: scaleX(1.5) scaleY(1.5);
+  color: #000000;
+  cursor: pointer;
+}
+
+
+form {
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.form-date-input {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+}
+.form-date-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(252, 162, 78, 0.25);
+  outline: none;
+}
+
+.text-pending {
+  color: rgb(243, 172, 18) !important;
+}
+.text-rejected {
+  color: red !important;
+}
+.text-accepted {
+  color: green !important;
+}
+.text-assigned {
+  color: blue !important;
+}
+.text-collected {
+  color: #3f51b5 !important;
+}
+
+.alerts-wrapper {
+  position: absolute;
+  right: 0px;
+  width: fit-content;
+  font-weight: bold;
+  animation: moveLeft 0.1s linear;
+  z-index: 100;
+}
+
+.alerts-wrapper .alert-danger {
+  color: white;
+  background-color: #e22a2a;
+}
+.alerts-wrapper .alert-success {
+  color: white;
+  background-color: #1fa64e;
+}
+
+@keyframes moveLeft {
+  from {
+    right: -100px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@media (max-width: 450px) {
+  section {
+    font-size: 14px;
+    padding: 0px 20px;
+    margin-left: 20px;
+    text-align: justify;
+  }
+}
+@media (max-width: 450px) {
+	nav{
+		font-size: 10px;
+		padding-left: 20px;
+	}
+}
+
+.form-container {
+    width: 75%;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 400px) {
+    .form-container {
+        width: 90%;
+        min-width: auto;
+    }
+}

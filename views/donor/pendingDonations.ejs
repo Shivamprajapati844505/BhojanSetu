@@ -1,0 +1,75 @@
+<main>
+	<%- include('../partials/donorSidebar') %>
+	
+	<div id="main-wrapper">
+		
+		<div class="bg-white shadow-sm p-3">
+			<span class="me-3" id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
+			<h5 class="m-0 color-theme d-inline-block">Pending Donations</h5>
+		</div>
+		
+		<div class="m-4">
+			<% for(let i=0; i<pendingDonations.length; i++) { %>
+				<div class="bg-white mb-4 p-4 shadow-sm">
+					<div class="mb-2">
+						<b>Food type:</b>
+						<span><%= pendingDonations[i].foodType %></span>
+					</div>
+					
+					<div class="mb-2">
+						<b>Quantity:</b>
+						<span><%= pendingDonations[i].quantity %></span>
+					</div>
+					<div class="mb-2">
+						<strong>Phone:</strong>
+						<span><%= pendingDonations[i].phone %></span>
+					</div>
+					
+					<div class="mb-2">
+						<b>Address given:</b>
+						<span><%= pendingDonations[i].address %></span>
+					</div>
+					
+					<div class="mb-2">
+						<b>Phone given:</b>
+						<span><%= pendingDonations[i].phone %></span>
+					</div>
+					
+					<div class="mb-2">
+						<b>Time of cooking:</b>
+						<span><%= pendingDonations[i].cookingTime.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short"}) %></span>
+					</div>
+					
+					<div class="mb-2">
+						<b class="font-bold">Status:</b>
+						
+						<% if(pendingDonations[i].status == "pending") { %>
+							<span class="text-pending">Your donation request hasn't been processed yet.</span>
+						<% } else if(pendingDonations[i].status == "rejected") { %>
+							<span class="text-rejected">Your donation request has been rejected</span>
+						<% } else if(pendingDonations[i].status == "accepted") { %>
+							<span class="text-accepted">Your donation request has been accepted. Please wait while an agent is being assigned.</span>
+						<% } else if(pendingDonations[i].status == "assigned") { %>
+							<span class="text-assigned">Your donation request has been accepted by: 
+								 <p class="mb-2 mt-2 text-black"><b>Ngo Name: </b><%=pendingDonations[i].agent.firstName + " " + pendingDonations[i].agent.lastName %></p>
+								<p class="mb-2 text-black"><b>Ngo Contact Number: </b><%=   pendingDonations[i].agent.phone %></p> 
+								<p class="mb-2 text-black"><b>Ngo Address: </b><%=   pendingDonations[i].agent.address %></p> 
+
+							</span>
+						<% } %>
+					</div>
+					
+					<% if(pendingDonations[i].status == "rejected") { %>
+						<div class="mb-2">
+							<a class="btn" href="/donor/donation/deleteRejected/<%= pendingDonations[i]._id %>">Okay</a>
+						</div>
+					<% } %>
+					
+				</div>
+			<% } %>
+		</div>
+		
+		
+		
+	</div>
+</main>
