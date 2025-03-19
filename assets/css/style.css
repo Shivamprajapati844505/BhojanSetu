@@ -22,6 +22,7 @@ header {
   height: 80px;
   font-weight: 500;
   font-size: 18px;
+  font-family: cursive;
   position: sticky;
 }
 header .nav-link {
@@ -48,9 +49,15 @@ header .navbar-toggler:focus {
   box-shadow: none;
 }
 
-.logo img{
+.logo{
+  color: #e6511a !important;
+  font-family: cursive;
+  font-size: 22px;
+}
+.logo i{
 width: 120px;
 padding-left: 20px;
+padding-right: 4px;
 }
 footer {
   background-color: var(--theme-color);
@@ -65,7 +72,12 @@ footer .icon:hover {
   transform: scale(1.5) !important;
   color: #ddd1d1 !important;
 }
-
+section h2{
+  font-family: cursive;
+}
+h3{
+  font-family: cursive;
+}
 .bg-img-1 {
   min-height: calc(100vh - 50px);
   background: url("/assets/images/img-1.jpg") no-repeat center;

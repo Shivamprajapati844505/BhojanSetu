@@ -24,10 +24,14 @@
   justify-content: center;
   padding-top: 20px;
 }
+.footer-right h5{
+  font-family: cursive;
+}
 .links {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  font-family: cursive;
 }
 .links li {
   font-size: 18px;
