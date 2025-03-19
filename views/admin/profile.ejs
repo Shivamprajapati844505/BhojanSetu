@@ -1,0 +1,80 @@
+<main class="flex flex-col md:flex-row">
+    <!-- Sidebar -->
+    <%- include('../partials/adminSidebar') %>
+
+    <!-- Main Content -->
+    <div id="main-wrapper" class="w-full p-6">
+        <div class="bg-white shadow-sm p-4 flex items-center">
+            <span id="sidebar-toggler-btn" class="text-xl mr-3"><i class="fas fa-bars"></i></span>
+            <h5 class="text-lg font-semibold text-gray-700">Profile</h5>
+        </div>
+
+        <form action="/admin/profile?_method=PUT" method="POST" class="w-full max-w-lg mx-auto bg-white shadow-sm rounded-lg mt-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- First Name -->
+                <div>
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" name="admin[firstName]" id="first-name"
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder="Enter first name.." value="<%= currentUser.firstName %>" required>
+                </div>
+
+                <!-- Last Name -->
+                <div>
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input type="text" name="admin[lastName]" id="last-name"
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder="Enter last name.." value="<%= currentUser.lastName %>" required>
+                </div>
+            </div>
+
+            <!-- Email (Disabled) -->
+            <div class="mt-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed"
+                    value="<%= currentUser.email %>" disabled>
+            </div>
+
+            <!-- Gender -->
+            <div class="mt-4">
+                <span class="block text-sm font-medium text-gray-700">Gender</span>
+                <div class="flex gap-4 mt-1">
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="admin[gender]" value="male" class="form-radio text-indigo-600"
+                            <% if(currentUser.gender=='male'){%> checked <%}%> >
+                        <span>Male</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="admin[gender]" value="female" class="form-radio text-indigo-600"
+                            <% if(currentUser.gender=='female'){%> checked <%}%> >
+                        <span>Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="mt-4">
+                <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                <input type="text" name="admin[address]" id="address"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    placeholder="Enter address.." value="<%= currentUser.address %>">
+            </div>
+
+            <!-- Phone -->
+            <div class="mt-4">
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                <input type="number" name="admin[phone]" id="phone"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    placeholder="Enter phone.." value="<%= currentUser.phone %>">
+            </div>
+
+            <!-- Update Button -->
+            <button type="submit"
+                class="w-full mt-6 bg-indigo-600 text-white py-2 rounded-md text-lg font-semibold hover:bg-indigo-700 transition-all">
+                Update
+            </button>
+        </form>
+    </div>
+</main>
