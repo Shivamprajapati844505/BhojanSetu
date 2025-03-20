@@ -31,9 +31,16 @@
             <a class="nav-link" href="/home/join-us">Contact us</a>
           </li>
           <% if(currentUser) { %>
-          <li class="user-icon font-color1 text-[10px]">
-            <%= currentUser.firstName[0].toUpperCase() %>
-          </li>
+            <div class="mb-2 text-black">
+              <% if (currentUser.image) { %>
+                <img src="<%= currentUser.image %>" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+              <% } else { %>
+                <li class="user-icon font-color1 text-[10px] flex items-center justify-center w-10 h-10 rounded-full bg-gray-300">
+                  <%= currentUser.firstName[0].toUpperCase() %>
+                </li>
+              <% } %>
+            </div>
+            
           <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Login</a>

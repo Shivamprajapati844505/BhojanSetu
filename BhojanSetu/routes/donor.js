@@ -3,19 +3,27 @@ const router = express.Router();
 const middleware = require("../middleware/index.js");
 const User = require("../models/user.js");
 const Donation = require("../models/donation.js");
+const upload = require("../middleware/upload");
 
 
-router.get("/donor/dashboard", middleware.ensureDonorLoggedIn, async (req,res) => {
+router.get("/donor/dashboard", middleware.ensureDonorLoggedIn, async (req, res) => {
 	const donorId = req.user._id;
 	const numPendingDonations = await Donation.countDocuments({ donor: donorId, status: "pending" });
 	const numAcceptedDonations = await Donation.countDocuments({ donor: donorId, status: "accepted" });
 	const numAssignedDonations = await Donation.countDocuments({ donor: donorId, status: "assigned" });
 	const numCollectedDonations = await Donation.countDocuments({ donor: donorId, status: "collected" });
+	const currentUser = await User.findById(donorId);
+  
 	res.render("donor/dashboard", {
-		title: "Dashboard",
-		numPendingDonations, numAcceptedDonations, numAssignedDonations, numCollectedDonations
+	  title: "Dashboard",
+	  numPendingDonations,
+	  numAcceptedDonations,
+	  numAssignedDonations,
+	  numCollectedDonations,
+	  currentUser,
 	});
-});
+  });
+  
 
 router.get("/donor/donate", middleware.ensureDonorLoggedIn, (req,res) => {
 	res.render("donor/donate", { title: "Donate" });
@@ -83,15 +91,21 @@ router.get("/donor/donation/deleteRejected/:donationId", async (req,res) => {
 	}
 });
 
-router.get("/donor/profile", middleware.ensureDonorLoggedIn, (req,res) => {
-	res.render("donor/profile", { title: "My Profile" });
+router.get("/donor/profile", middleware.ensureDonorLoggedIn, async (req,res) => {
+	const currentUser = await User.findById(req.user._id);
+	res.render("donor/profile", { title: "My Profile",currentUser });
 });
 
-router.put("/donor/profile", middleware.ensureDonorLoggedIn, async (req,res) => {
+router.put("/donor/profile", middleware.ensureDonorLoggedIn, upload.single("image"),async (req,res) => {
 	try
 	{
 		const id = req.user._id;
-		const updateObj = req.body.donor;	// updateObj: {firstName, lastName, gender, address, phone}
+		const updateObj = req.body.donor;
+		
+		if (req.file) {
+			updateObj.image = '/uploads/' + req.file.filename;
+		  }
+
 		await User.findByIdAndUpdate(id, updateObj);
 		
 		req.flash("success", "Profile updated successfully");

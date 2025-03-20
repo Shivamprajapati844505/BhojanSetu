@@ -22,11 +22,12 @@ const userSchema = new mongoose.Schema({
 		enum: ["male", "female"]
 	},
 	address: String,
+	image:String,
 	phone: Number,
 	joinedTime: {
 		type: Date,
 		default: Date.now
-	},
+	}, 
 	role: {
 		type: String,
 		enum: ["admin", "donor", "agent"],

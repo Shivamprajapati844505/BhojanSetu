@@ -3,14 +3,20 @@ const router = express.Router();
 const middleware = require("../middleware/index.js");
 const User = require("../models/user.js");
 const Donation = require("../models/donation.js");
+const upload = require("../middleware/upload");
+
 
 router.get("/agent/dashboard", middleware.ensureAgentLoggedIn, async (req,res) => {
 	const agentId = req.user._id;
 	const numAssignedDonations = await Donation.countDocuments({ agent: agentId, status: "assigned" });
 	const numCollectedDonations = await Donation.countDocuments({ agent: agentId, status: "collected" });
+	const currentUser = await User.findById(agentId);
+
 	res.render("agent/dashboard", {
 		title: "Dashboard",
-		numAssignedDonations, numCollectedDonations
+		numAssignedDonations, 
+		numCollectedDonations,
+		currentUser,
 	});
 });
 
@@ -75,28 +81,33 @@ router.get("/agent/collection/collect/:collectionId", middleware.ensureAgentLogg
 
 
 
-router.get("/agent/profile", middleware.ensureAgentLoggedIn, (req,res) => {
-	res.render("agent/profile", { title: "My Profile" });
-});
 
-router.put("/agent/profile", middleware.ensureAgentLoggedIn, async (req,res) => {
-	try
-	{
-		const id = req.user._id;
-		const updateObj = req.body.agent;	// updateObj: {firstName, lastName, gender, address, phone}
-		await User.findByIdAndUpdate(id, updateObj);
-		
-		req.flash("success", "Profile updated successfully");
-		res.redirect("/agent/profile");
+// Get Profile
+router.get("/agent/profile", middleware.ensureAgentLoggedIn, async (req, res) => {
+	const currentUser = await User.findById(req.user._id);
+	res.render("agent/profile", { title: "My Profile", currentUser });
+  });
+  
+  // Update Profile
+  router.put("/agent/profile", middleware.ensureAgentLoggedIn, upload.single("image"), async (req, res) => { 
+	try {
+	  const id = req.user._id;
+	  const updateObj = req.body.agent;
+  
+	  if (req.file) {
+		updateObj.image = '/uploads/' + req.file.filename;
+	  }
+  
+	  await User.findByIdAndUpdate(id, updateObj);
+	  req.flash("success", "Profile updated successfully");
+	  res.redirect("/agent/profile");
+	} catch (err) {
+	  console.error(err);
+	  req.flash("error", "Some error occurred on the server.");
+	  res.redirect("back");
 	}
-	catch(err)
-	{
-		console.log(err);
-		req.flash("error", "Some error occurred on the server.")
-		res.redirect("back");
-	}
-	
-});
+  });
+  
 
 
 module.exports = router;

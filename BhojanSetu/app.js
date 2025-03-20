@@ -20,6 +20,7 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use("/assets", express.static(__dirname + "/assets"));
 app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(session({
 	secret: "secret",
