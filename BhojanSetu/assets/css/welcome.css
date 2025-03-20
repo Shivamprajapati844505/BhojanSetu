@@ -1,0 +1,124 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.side-left {
+    width: 50%;
+    background-color: #ffff66;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+}
+
+.side-left span {
+    font-weight: bold;
+    color: red;
+}
+
+.side-left p {
+    font-weight: bold;
+    color: blue;
+    margin: 10px 0;
+}
+
+.side-left em {
+    color: black;
+    font-weight: bold;
+}
+
+.middle {
+    width: 100%;
+    background-color: #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    margin: 0 40px;
+    font-size: 20px;
+}
+
+.middle p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.middle ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.middle ul li {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.right-side {
+    width: 50%;
+    background-color: #b3e5fc;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.right-side h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width:450px) {
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-left {
+        width: 80%;
+        font-family: 'Arial', sans-serif;
+        font-size:20px;
+       margin-bottom: 20px;
+    }
+    
+    .middle {
+        width: 80%;
+        margin: 0 40px;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .middle p {
+        font-size:18px;
+    }
+    .middle ul {
+        list-style-type: none;
+        margin-left: 0px;
+        padding: 0px;
+    }
+    .middle ul li {
+        font-size: 12px;
+    }
+    .middle ul li:nth-of-type(2n+1) {
+        display: none;
+    }
+    .right-side {
+        width: 80%;
+        padding: 30px 15px;  
+    }
+    
+    .right-side h2 {
+        font-size: 15px;
+        line-height: 1.5;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+}
