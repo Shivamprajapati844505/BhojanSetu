@@ -4,8 +4,8 @@
   "description": "A Food donation management system in which donors can donate the food and this food can be fed to the poor people",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js -e html,css,js,ejs"
+    "start": "nodemon app.js",
+    "dev": "node app.js -e html,css,js,ejs"
   },
   "keywords": [
     "Food",
