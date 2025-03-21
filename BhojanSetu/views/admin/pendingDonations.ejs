@@ -5,11 +5,11 @@
 		
 		<div class="bg-white shadow-sm p-3">
 			<span class="me-3" id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
-			<h5 class="m-0 color-theme d-inline-block">Pending Donations</h5>
+			<h5 class="m-0 color-theme d-inline-block title">Pending Donations</h5>
 		</div>
 		
 		<div class="col col-sm-10 col-12 m-auto my-4" style="max-height: 75%; overflow: auto;">
-			<table class="table table-info table-striped table-hover m-0 bg-white">
+			<table class="table table-info table-striped table-hover m-0 bg-white text-control">
 				<thead>
 					<tr>
 						<th scope="col">No.</th>
@@ -28,7 +28,7 @@
 							<td> <%= pendingDonations[i].foodType %> </td>
 							<td> <%= pendingDonations[i].quantity %> </td>
 							<td class="fw-bold text-<%= pendingDonations[i].status %>"> <%= pendingDonations[i].status %> </td>
-							<td><a href="/admin/donation/view/<%= pendingDonations[i]._id %>" class="btn mt-2 p-2 px-4">View</a></td>
+							<td><a href="/admin/donation/view/<%= pendingDonations[i]._id %>" class="btn view-btn mt-2 p-2 px-4">View</a></td>
 						</tr>
 					<% } %>
 				</tbody>

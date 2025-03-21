@@ -5,12 +5,12 @@
 		
 		<div class="bg-white shadow-sm p-3">
 			<span class="me-3" id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
-			<h5 class="m-0 color-theme d-inline-block">Pending Donations</h5>
+			<h5 class="m-0 color-theme d-inline-block title">Pending Donations</h5>
 		</div>
 		
 		<div class="m-4">
 			<% for(let i=0; i<pendingDonations.length; i++) { %>
-				<div class="bg-white mb-4 p-4 shadow-sm">
+				<div class="bg-white mb-4 p-4 shadow-sm text-control">
 					<div class="mb-2">
 						<b>Food type:</b>
 						<span><%= pendingDonations[i].foodType %></span>
@@ -21,7 +21,7 @@
 						<span><%= pendingDonations[i].quantity %></span>
 					</div>
 					<div class="mb-2">
-						<strong>Phone:</strong>
+						<b>Phone:</b>
 						<span><%= pendingDonations[i].phone %></span>
 					</div>
 					
@@ -50,7 +50,7 @@
 						<% } else if(pendingDonations[i].status == "accepted") { %>
 							<span class="text-accepted">Your donation request has been accepted by.</span>
 						<% } else if(pendingDonations[i].status == "assigned") { %>
-							<span class="text-accepted">Please wait while an agent is being assigned.</span>
+							<span class="text-accepted">Please wait while an ngo is being assigned.</span>
 							<div class="text-assigned" style="display: flex;">
 								<div style="overflow: hidden;">
 								  <p class="mb-2 mt-2 text-black"><b>Ngo Name: </b><%= pendingDonations[i].agent.firstName + " " + pendingDonations[i].agent.lastName %></p>

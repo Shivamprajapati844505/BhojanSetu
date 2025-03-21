@@ -5,10 +5,10 @@
 		
 		<div class="bg-white shadow-sm p-3">
 			<span class="me-3" id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
-			<h5 class="m-0 color-theme d-inline-block">Donation</h5>
+			<h5 class="m-0 color-theme d-inline-block title">Donation</h5>
 		</div>
 		
-		<div class="border m-4 my-3 p-4 bg-white rounded-2 shadow-sm">
+		<div class="border m-4 my-3 p-4 bg-white rounded-2 shadow-sm text-control">
 			<div class="mb-2">
 				<span>Donor Name:</span>
 				<span><%= donation.donor.firstName + " " + donation.donor.lastName %></span>
@@ -53,14 +53,14 @@
 			
 			<% if(donation.status == "assigned") { %>
 				<div class="mb-2">
-					<span>Agent assigned:</span>
+					<span>Ngo assigned:</span>
 					<span><%= donation.agent.firstName + " "  + donation.agent.lastName %></span>
 				</div>
 			<% } %>
 			
 			<% if(donation.status == "assigned" && donation.adminToAgentMsg != "") { %>
 				<div class="mb-2">
-					<span>Your message to Agent:</span>
+					<span>Your message to Ngo:</span>
 					<div class="ms-3"><%= donation.adminToAgentMsg %></div>
 				</div>
 			<% } %>
@@ -73,12 +73,12 @@
 			<% } %>
 			
 			
-			<div class="mt-4">
+			<div class="mt-2">
 				<% if(donation.status == "pending") { %>
-					<a href="/admin/donation/accept/<%= donation._id %>" class="btn">Accept</a>
-					<a href="/admin/donation/reject/<%= donation._id %>" class="btn btn-danger">Reject</a>
+					<a href="/admin/donation/accept/<%= donation._id %>" class="btn btn2">Accept</a>
+					<a href="/admin/donation/reject/<%= donation._id %>" class="btn btn2 btn-danger">Reject</a>
 				<% } else if(donation.status == "accepted") { %>
-					<a href="/admin/donation/assign/<%= donation._id %>" class="btn">Assign agent</a>
+					<a href="/admin/donation/assign/<%= donation._id %>" class="btn btn1">Assign Ngo</a>
 				<% } %>
 			</div>
 			

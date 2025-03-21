@@ -5,11 +5,11 @@
 	  
 	  <div class="bg-white shadow-sm p-3">
 		<span class="me-3" id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
-		<h5 class="m-0 color-theme d-inline-block">Dashboard</h5>
+		<h5 class="m-0 color-theme d-inline-block title">Dashboard</h5>
 	  </div>
 	  
 	  
-	  <div class="p-4 bg-light rounded shadow-sm mb-4 d-flex flex-wrap align-items-center">
+	  <div class="p-4 bg-light user-profile rounded shadow-sm mb-4 d-flex flex-wrap align-items-center">
 		<div>
 		  <% if (currentUser.image) { %>
 			<img src="<%= currentUser.image %>" alt="Profile Image" style="width: 120px; height: 150px; border-radius: 5%; object-fit: cover;">
@@ -20,7 +20,7 @@
 			</div>
 		  <% } %>
 		</div>
-		<div class="ms-4">
+		<div class="ms-4 user-profile-data">
 		  <p><b>Name:</b> <%= currentUser.firstName %> <%= currentUser.lastName %></p>
 		  <p><b>Email:</b> <%= currentUser.email %></p>
 		  <p><b>Phone:</b> <%= currentUser.phone || 'N/A' %></p>
@@ -29,26 +29,26 @@
 	  </div>
 	  
 	  <!-- Donations Overview -->
-	  <div class="d-flex gap-3 flex-wrap m-4 text-white">
+	  <div class="d-flex gap-3 user-overview flex-wrap m-4 text-white">
 		
-		<div class="bg-success rounded p-3" style="width: 250px;">
-		  <div class="fs-1"><%= numCollectedDonations %></div>
-		  <div class="fs-5">Donations by you</div>
+		<div class="bg-success rounded p-3 overview" style="width: 250px;">
+		  <div class="fs-1 overview-1"><%= numCollectedDonations %></div>
+		  <div class="fs-5 overview-2">Donations by you</div>
 		</div>
 		
-		<div class="bg-primary rounded p-3" style="width: 250px;">
-		  <div class="fs-1"><%= numPendingDonations %></div>
-		  <div class="fs-5">Donation requests not processed yet</div>
+		<div class="bg-primary rounded p-3 overview" style="width: 250px;">
+		  <div class="fs-1 overview-1"><%= numPendingDonations %></div>
+		  <div class="fs-5 overview-2">Donation requests not processed yet </div> 
 		</div>
 		
-		<div class="bg-success rounded p-3" style="width: 250px;">
-		  <div class="fs-1"><%= numAcceptedDonations %></div>
-		  <div class="fs-5">Donations accepted and to be assigned to agent</div>
+		<div class="bg-success rounded p-3 overview" style="width: 250px;">
+		  <div class="fs-1 overview-1"><%= numAcceptedDonations %></div>
+		  <div class="fs-5 overview-2">Donations accepted and to be assigned to agent</div>
 		</div>
 		
-		<div class="bg-danger rounded p-3" style="width: 250px;">
-		  <div class="fs-1"><%= numAssignedDonations %></div>
-		  <div class="fs-5">Donations not collected yet</div>
+		<div class="bg-danger rounded p-3 overview" style="width: 250px;">
+		  <div class="fs-1 overview-1"><%= numAssignedDonations %></div>
+		  <div class="fs-5 overview-2">Donations not collected yet </div>
 		</div>
 		
 	  </div>
