@@ -24,14 +24,12 @@ header {
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   position: static;
-  top:0;
+  top: 0;
   width: 100%;
-
 }
 header .nav-link {
   color: #e6511a !important;
   margin: 0px 6px 0px 8px;
-
 }
 header #navbarSupportedContent {
   background-color: var(--theme-color);
@@ -49,38 +47,43 @@ header .user-icon {
   width: 40px;
   text-align: center;
 }
-header .navbar-toggler{
+header .navbar-toggler {
   color: #e6511a;
 }
 header .navbar-toggler:focus {
   box-shadow: none;
 }
+@media (max-width: 450px) {
+  .menuList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
 
-.logo{
+.logo {
   color: #e6511a !important;
   font-family: cursive;
   font-size: 22px;
 }
-.logo i{
+.logo i {
   font-size: 32px;
   color: #e6511a;
-padding-left: 20px;
-padding-right: 4px;
+  padding-left: 20px;
+  padding-right: 4px;
 }
-@media (max-width:450px) {
-  .logo1{
+@media (max-width: 450px) {
+  .logo1 {
     font-size: 15px;
   }
-  .logo1 i{
-    font-size: 18px; 
+  .logo1 i {
+    font-size: 18px;
   }
-  .navbar-toggler{
-    font-size:20px;
-   color:#e22a2a;   
-   margin-right: 2%;
-
+  .navbar-toggler {
+    font-size: 20px;
+    color: #e22a2a;
+    margin-right: 2%;
   }
-  
 }
 footer {
   background-color: var(--theme-color);
@@ -95,17 +98,16 @@ footer .icon:hover {
   transform: scale(1.5) !important;
   color: #ddd1d1 !important;
 }
-section h2{
+section h2 {
   font-family: cursive;
 }
-h3{
+h3 {
   font-family: cursive;
 }
 .bg-img-1 {
   min-height: calc(100vh - 50px);
   background: url("/assets/images/img-1.jpg") no-repeat center;
   background-size: cover;
-  
 }
 .bg-img-2 {
   min-height: calc(100vh - 50px);
@@ -146,63 +148,63 @@ h3{
   object-position: center;
 }
 #carousel img {
-	width: calc(100vw - 200px);
-	height: calc(100vh - 50px);
-	object-fit: cover;
-	object-position: center;
-	margin: 20px auto 0; 
-	display: block;
+  width: calc(100vw - 200px);
+  height: calc(100vh - 50px);
+  object-fit: cover;
+  object-position: center;
+  margin: 20px auto 0;
+  display: block;
+}
+@media (max-width: 450px) {
+  #carousel img {
+    width: calc(100vw - 30px);
+    height: calc(100vh - 50px);
+    object-fit: cover;
+    object-position: center;
+    margin: 5px auto 0;
+    display: block;
   }
-  @media (max-width:450px) {
-	#carousel img {
-		width: calc(100vw - 30px); 
-		height: calc(100vh - 50px);
-		object-fit: cover;
-		object-position: center;
-		margin: 5px auto 0; 
-		display: block;
-	  }
-  } 
+}
 
-  /* auth forms responsive */
-@media (max-width:450px) {
-  .btn2{
+/* auth forms responsive */
+@media (max-width: 450px) {
+  .btn2 {
     width: 100px;
     padding: 5px 20px;
     font-size: 12px;
     text-align: center;
   }
-  .alredy{
+  .alredy {
     font-size: 10px;
   }
-  .form-label1{
+  .form-label1 {
     font-size: 12px;
   }
-  .form-control1{
-   font-size: 12px;
+  .form-control1 {
+    font-size: 12px;
   }
-  .title{
+  .title {
     font-size: 15px;
   }
-  .text-control{
-   font-size: 10px;
-   /* padding: 10px !important; */
+  .text-control {
+    font-size: 10px;
+    /* padding: 10px !important; */
   }
-  .alert-control{
+  .alert-control {
     font-size: 12px !important;
-   padding: 0px 20px !important;
+    padding: 0px 20px !important;
   }
-  .form-container{
+  .form-container {
     padding: 25px !important;
   }
-  .view-btn{
+  .view-btn {
     padding: 3px 8px !important;
     width: 50px;
     font-size: 10px;
     text-align: center;
     margin-top: 0px !important;
   }
-  .view-btn1{
+  .view-btn1 {
     padding: 3px 8px !important;
     width: 50px;
     font-size: 10px;
@@ -217,7 +219,6 @@ h3{
   color: #000000;
   cursor: pointer;
 }
-
 
 form {
   border-radius: 5px;
@@ -285,67 +286,64 @@ form {
     margin-left: 20px;
     text-align: justify;
   }
-  section p{
+  section p {
     font-size: 10px;
   }
-  section h2{
+  section h2 {
     font-size: 18px;
   }
 }
 @media (max-width: 450px) {
-	nav{
-		font-size: 10px;
-		padding-left: 20px;
-	}
+  nav {
+    font-size: 10px;
+    padding-left: 20px;
+  }
 }
 
 .form-container {
-    width: 75%;
-    min-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 75%;
+  min-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 400px) {
-    .form-container {
-        width: 90%;
-        min-width: auto;
-    }
+  .form-container {
+    width: 90%;
+    min-width: auto;
+  }
 }
 
-
 @media (max-width: 450px) {
- 
   .user-profile {
-  display: flex;
-  justify-content: center;
-  text-align: start;
-  margin:  20px 30px;
+    display: flex;
+    justify-content: center;
+    text-align: start;
+    margin: 20px 30px;
   }
-  .user-profile-data{
+  .user-profile-data {
     margin-top: 20px;
     align-items: start;
     font-size: 12px;
   }
-  .user-overview{
+  .user-overview {
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
-  .user-overview div{
+  .user-overview div {
     width: 200px !important;
     padding: 5px !important;
   }
-  .overview{
+  .overview {
     padding: 0px !important;
   }
-  .overview-1{
+  .overview-1 {
     /* text-align: center !important; */
     font-size: 18px !important;
   }
-  .overview-2{
-    padding:5px 10px !important;
+  .overview-2 {
+    padding: 5px 10px !important;
     font-size: 12px !important;
     font-weight: 100 !important;
   }
