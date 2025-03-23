@@ -66,7 +66,8 @@ header .navbar-toggler:focus {
   font-family: cursive;
   font-size: 22px;
 }
-.logo i {
+.logo img{
+  width: 120px;
   font-size: 32px;
   color: #e6511a;
   padding-left: 20px;
@@ -76,8 +77,8 @@ header .navbar-toggler:focus {
   .logo1 {
     font-size: 15px;
   }
-  .logo1 i {
-    font-size: 18px;
+  .logo img {
+   width: 80px;
   }
   .navbar-toggler {
     font-size: 20px;
@@ -88,11 +89,7 @@ header .navbar-toggler:focus {
 footer {
   background-color: var(--theme-color);
 }
-footer .nav-link:hover {
-  transition: 0.3s;
-  transform: scale(1.02);
-  color: #ddd1d1 !important;
-}
+
 footer .icon:hover {
   transition: 0.3s;
   transform: scale(1.5) !important;
@@ -158,12 +155,24 @@ h3 {
 @media (max-width: 450px) {
   #carousel img {
     width: calc(100vw - 30px);
-    height: calc(100vh - 50px);
+    height: calc(55vh - 20px);
     object-fit: cover;
     object-position: center;
     margin: 5px auto 0;
     display: block;
   }
+  
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 1rem;
+  height: 1rem;
+}
+.carousel-indicators [data-bs-target]{
+  width: 20px;
+  height: 1.5px;
+  padding: 0;
+  margin-right: 3px;
+  margin-left: 3px;
+}
 }
 
 /* auth forms responsive */
